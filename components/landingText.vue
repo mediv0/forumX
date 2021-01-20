@@ -16,6 +16,15 @@ export default {};
 .description {
     width: 50%;
     margin-top: 60px;
+
+    @include query(896px) {
+        width: 80%;
+        text-align: center;
+    }
+
+    @include query(501px) {
+        width: 100%;
+    }
     &__title {
         font-weight: 400;
         font-size: 2.543rem;
@@ -35,6 +44,10 @@ export default {};
         width: 84%;
         color: $gray-1;
         font-size: 1.143rem;
+
+        @include query(896px) {
+            width: 100%;
+        }
     }
 }
 </style>

@@ -75,7 +75,11 @@ export default {
 .question_single__comments {
     width: 800px;
     margin: 0 auto;
-    margin: 80px auto 1000px auto;
+    margin: 80px auto 80px auto;
+    @include query(819px) {
+        width: 100%;
+        padding: 0 10px;
+    }
 
     &__title {
         font-size: 19px;

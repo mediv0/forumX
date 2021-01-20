@@ -18,11 +18,7 @@ export default {
     components: {
         tags,
     },
-    middleware({ store, redirect }) {
-        if (!store.state.isAuthorized) {
-            return redirect("/");
-        }
-    },
+    middleware: "authenticated",
     data() {
         return {
             tagsArray: [],
@@ -67,6 +63,11 @@ export default {
 .ask {
     width: 700px;
     margin: 60px auto 0 auto;
+
+    @include query(819px) {
+        width: 100%;
+        padding: 0 10px;
+    }
 
     &__divider {
         margin: 20px 0;

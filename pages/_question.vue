@@ -88,6 +88,10 @@ export default {
         &__tags {
             display: flex;
             align-items: center;
+            @include query(649px) {
+                flex-direction: column;
+                align-items: flex-start;
+            }
 
             &__tg {
                 margin-top: 3px;
@@ -99,6 +103,11 @@ export default {
                 font-weight: 700;
                 font-size: 13px;
                 color: $gray-3;
+
+                @include query(649px) {
+                    margin-right: 0px;
+                    margin-left: 0px;
+                }
 
                 & ~ p {
                     font-size: 12px;
@@ -125,6 +134,10 @@ export default {
         justify-content: space-between;
         align-items: flex-start;
         margin-top: 80px;
+
+        @include query(762px) {
+            flex-direction: column;
+        }
         &__asked {
             flex: 1;
             border-radius: $btn-border-radius;
@@ -133,6 +146,10 @@ export default {
 
             font-size: 15px;
             line-height: 32px;
+
+            @include query(762px) {
+                width: 100%;
+            }
         }
     }
 

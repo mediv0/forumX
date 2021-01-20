@@ -60,6 +60,7 @@ app.get("/questions", (req, res) => {
         .catch((error) => console.log(error));
 });
 
+// get single question by its id
 app.get("/questions/:id", async (req, res) => {
     let data;
     try {
@@ -68,6 +69,17 @@ app.get("/questions/:id", async (req, res) => {
         res.status(400).json({ error: e.toString() });
     }
     data.comments.reverse();
+    res.send(data);
+});
+
+// get list of questions for single user
+app.get("/user/:email", async (req, res) => {
+    let data;
+    try {
+        data = await QuestionModel.find({ "creator.email": "anonymousaxis@gmail.com" }).exec();
+    } catch (e) {
+        res.status(400).json({ error: e.toString() });
+    }
     res.send(data);
 });
 
@@ -103,6 +115,16 @@ app.post("/markAsSolved", async (req, res) => {
                 },
             }
         ).then(() => res.status(200).json({ msg: "marked as solved" }));
+    } catch (e) {
+        res.status(400).json({ error: e.toString() });
+    }
+});
+
+app.post("/remove", async (req, res) => {
+    try {
+        await QuestionModel.deleteOne({ _id: req.body.id }).then((e) => {
+            res.status(200).json({ msg: "comment deleted" });
+        });
     } catch (e) {
         res.status(400).json({ error: e.toString() });
     }

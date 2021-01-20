@@ -21,6 +21,10 @@ export default {
     justify-content: space-between;
     align-items: center;
 
+    @include query(359px) {
+        flex-direction: column;
+    }
+
     & > * {
         display: block;
     }

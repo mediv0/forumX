@@ -21,6 +21,10 @@ export default {
     align-items: center;
     padding: 0 38px;
 
+    @include query(896px) {
+        flex-direction: column;
+    }
+
     & > img {
         margin-top: 37px;
         width: 47%;

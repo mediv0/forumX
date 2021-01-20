@@ -42,4 +42,9 @@
 .container {
     @extend .h-center;
     width: 1170px;
+
+    @include query(1180px) {
+        width: 100%;
+        padding: 0 14px;
+    }
 }

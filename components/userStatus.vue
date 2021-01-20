@@ -3,11 +3,11 @@
         <button v-if="!isAuthorized" class="header__login" @click="login">
             <span class="header__login__value">login with google</span>
         </button>
-        <div v-else class="header__login__panel">
+        <nuxt-link v-else tag="div" to="/dashboard" class="header__login__panel">
             <nuxt-link tag="button" to="/ask" class="header__login__panel__btn">Ask Something</nuxt-link>
             <img :src="userData.PK" alt="user img" width="30" height="30" />
             <p>{{ userData.Ed }}</p>
-        </div>
+        </nuxt-link>
     </div>
 </template>
 
@@ -62,6 +62,7 @@ $google-btn-color: #ef233c;
     &__panel {
         display: flex;
         align-items: center;
+        cursor: pointer;
 
         & > img {
             border-radius: 9px;

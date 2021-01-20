@@ -74,6 +74,10 @@ export default {
             align-items: center;
             flex-direction: row-reverse;
             width: 300px;
+
+            @include query(654px) {
+                width: 100%;
+            }
         }
 
         &__author {

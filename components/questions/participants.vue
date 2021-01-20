@@ -25,6 +25,12 @@ export default {
     margin-left: 20px;
     padding: 25px 30px;
 
+    @include query(762px) {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 20px;
+    }
+
     &__title {
         font-weight: 700;
     }

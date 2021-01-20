@@ -34,6 +34,10 @@ export default {
     align-items: flex-start;
     margin-top: 60px;
 
+    @include query(654px) {
+        flex-direction: column;
+    }
+
     &__sidebar {
         width: 300px;
         font-weight: 400;
@@ -45,6 +49,12 @@ export default {
         top: 20px;
         text-align: center;
         @include highlightedBox;
+
+        @include query(654px) {
+            flex-direction: column;
+            position: initial;
+            width: 100%;
+        }
 
         & > p > span {
             font-weight: 700;
@@ -67,6 +77,10 @@ export default {
         flex: 1;
         height: 1000px;
         margin-left: 20px;
+
+        @include query(654px) {
+            margin-left: 0;
+        }
 
         &__endTXT {
             color: $gray-1;
